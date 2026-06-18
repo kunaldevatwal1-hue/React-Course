@@ -11,26 +11,45 @@
     <script src="https://unpkg.com/supersimpledev/react.js"></script>
     <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script src="https://unpkg.com/supersimpledev@8.6.4/dayjs.js"></script>
 
     <script type="text/babel">
-
+    console.log(dayjs (). format('MMMM D'))
         const button = <button>helllo</button>
-
+        let productCost=(10*2+6)
+        let ShippingCost=5
         const div=(
             <div>
                 <button>Good Job!</button>
                 <p>My name is Kunal</p>
+                <p>Today is {dayjs (). format('MMMM D')}</p>
+                <p>Current time is {dayjs (). format('HH:mm:ss')}</p>
                 <p>Cotton socks</p>
+
+                
+
                 <p>Price: $10</p>
+                <p>Product Cost: ${productCost}</p>
+                <p>Shipping cost: ${ShippingCost}</p>
+                <p>total Cost: ${productCost + ShippingCost}</p>
+                
                 <button>Add to Cart</button>
             </div>
 
         )
+        
         const container = document.querySelector('.js-container');
 
-        ReactDOM.createRoot(container).render(
-            div
-        );
+        // ReactDOM.createRoot(container).render(
+        //     div
+        // );
+        const root=ReactDOM.createRoot(container)
+        root.render(div)
+
+            setInterval(() => {
+               const paragraph = <p>Current time: {dayjs().format('HH:mm:ss')}</p>;
+        root.render(paragraph);
+            },1000);
     </script>
 </body>
 </html>
