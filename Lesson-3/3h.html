@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>React Basics</title>
+  </head>
+  <body>
+    <div class="js-container"></div>
+
+    <script src="https:unpkg.com/supersimpledev/react.js"></script>
+    <script src="https:unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https:unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+
+      function App(){
+
+        const [count, setCount] = React.useState('');
+
+        function handleChange(event){
+          setCount(event.target.value);
+        }
+
+        function restText(){
+          setCount('')
+        }
+
+        function giveExample(event){
+          setCount("kunal");
+        }
+
+        return(
+          <>
+             <input
+               placeholder="Type a name here"
+               onChange={handleChange}
+               size="30"
+                  value={count}
+             />
+
+            
+             <button
+             onClick={restText}
+             >
+             Rest
+             </button>
+             <button
+             onClick={giveExample}
+             >  Example</button>
+
+
+             <p>Hello {count}</p>
+           </>
+         );
+       }
+
+     
+
+ const container = document.querySelector('.js-container');
+      ReactDOM.createRoot(container).render(<App />);
+    </script>
+  </body>
+</html>
