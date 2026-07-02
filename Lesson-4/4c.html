@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>4c</title>
+    <style>
+        .on-button{
+            background-color:rgb(25, 135, 84);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+
+        }
+
+        .off-button{
+            background-color:rgb(220, 53, 69);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+
+        }
+
+    </style>
+</head>
+<body>
+    <div class="js-container"></div>
+
+    <!-- <srcipt src="https://unpkg.com/supersimpledev@8.6.4/external-library.js"></srcipt> -->
+    <script>console.log("hello") </script>
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script src="https://unpkg.com/supersimpledev@8.6.4/dayjs.js"></script>
+
+    <script type="text/babel">
+    
+    
+
+    function App(){
+        const [isButton,setButton]=React.useState(false);
+
+        function switchButton(){
+            if(isButton){
+                setButton(false);
+            }else{
+                setButton(true);
+            }
+        }
+
+
+        return (
+           <button className={isButton? 'on-button':'off-button'}
+         onClick={switchButton}
+         >
+         {isButton? 'ON':'OFF'}
+         </button>
+        );
+    }
+    const container = document.querySelector('.js-container');
+       const root = ReactDOM.createRoot(container)
+        root.render(
+            <App />
+        )
+
+    
+    </script>
+</body>
+</html>
